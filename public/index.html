@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+	<head>
+		<title>
+			Jonathan Balsano - jrb2194
+		</title>
+		<style type="text/css">
+			body {
+				width: 800px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			#columbia {
+				padding-left: 13px;
+				padding-top: 1px;
+			}
+			#columbia a {
+				text-decoration: none;
+				font-family: 'Helvetica Narrow', 'Helvetica', Arial, 'Sans-serif';
+				font-size: 18pt;
+				color: #808080;
+			}
+			#name {
+				font-family: 'Helvetica', 'Arial', 'Sans-serif';
+				font-size: 96pt;
+				text-align: right;
+				padding-right: 23px;
+			}
+			#content {
+				overflow: hidden;
+			}
+			#navigation {
+				float: left;
+				width: 200px;
+			}
+			#navigation li{
+				list-style: none;
+				margin-top: -12px;
+				margin-left: -14px;
+				line-height: 1.61em;
+			}
+			#navigation a {
+				font-family: 'Helvetica', 'Arial', 'Sans-serif';
+				font-size: 18pt;
+				color: #666666;
+				line-height: 1.61em;
+				text-decoration: none;
+			}
+			#items {
+				float: left;
+				overflow: hidden;
+				width: 600px;
+				margin:0px;
+				padding: 0px;
+			}
+			#container {
+				margin-left: 0px;
+				width: 3000px;
+			}
+			.speech {
+				font-family: 'Euphemia', 'Arial', 'Sans-serif';
+				font-size: 14pt;
+				width: 529px;
+				float: left;
+				position:relative;
+				padding:15px;
+				margin: 18px 37px 3em 0px;
+				border:2px solid #666666;
+				color:#000;
+				background:#fff;
+				/* css3 */
+				-webkit-border-radius:10px;
+				-moz-border-radius:10px;
+				border-radius:10px;
+			}
+			.speech:before {
+				content:"";
+				position:absolute;
+				top:-20px; /* value = - border-top-width - border-bottom-width */
+				bottom:auto;
+				left:auto;
+				right:198px; /* controls horizontal position */
+				border-width:0 20px 20px;
+				border-style:solid;
+				border-color:#666666 transparent;
+				display:block; 
+				width:0;
+			}
+			.speech:after {
+				content:"";
+				position:absolute;
+				top:-18px; /* value = - border-top-width - border-bottom-width */
+				bottom:auto;
+				left:auto;
+				right:200px; /* value = (:before right) + (:before border-right) - (:after border-right) */
+				border-width:0 18px 18px;
+				border-style:solid;
+				border-color:#fff transparent;
+				display:block; 
+				width:0;
+			}
+			#notes li {
+				/*float: left;
+				display: block;
+				width: 150px;*/
+			}
+			#notes li a {
+				color: #000;
+				text-decoration: none;
+				font-size: 12pt;
+			}
+			#links li {
+				list-style: none;
+			}
+			#links li a {
+				color: #333;
+				text-decoration: none;
+			}
+		</style>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.2.min.js"> </script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#a-home").click(function () {
+					$("#container").animate({'margin-left': 0}, 1000);
+				});
+				$("#a-projects").click(function () {
+					$("#container").animate({'margin-left': -600}, 1000);
+				});
+				$("#a-notes").click(function () {
+					$("#container").animate({'margin-left': -1200}, 1000);
+				});
+				$("#a-about").click(function () {
+					$("#container").animate({'margin-left': -1800}, 1000);
+				});
+				$("#a-links").click(function () {
+					$("#container").animate({'margin-left': -2400}, 1000);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="columbia">
+			<a href="http://columbia.edu/">columbia.edu</a>
+		</div>
+		<div id="name">
+			jbalsano
+		</div>
+		<div id="content">
+			<div id="navigation">
+				<ul>
+					<li><a href="#" id="a-home">Home</a></li>
+					<li><a href="#" id="a-projects">Projects</a></li>
+					<li><a href="#" id="a-notes">Notes</a></li>
+					<li><a href="#" id="a-about">About</a></li>
+					<li><a href="#" id="a-links">Links</a></li>
+				</ul>
+			</div>
+			<div id="items">
+				<div id="container">
+					<div class="speech" id="home">
+						Welcome to my small corner of the internet. There's not very much going on here, but feel free to browse around and enjoy.
+					</div>
+					<div class="speech" id="projects">
+						Most of my current projects cannot currently be displayed publicly, but if you would like more information you can contact me directly. Some of my work can be found on my <a href="http://github.com/jrbalsano">github</a>. It includes:
+						<ul>
+							<li>A Google Apps Script for matching pretty much everything in two sheets of a google spreadsheet, but specifically designed to match hosts and attendees for an event requiring overnight stays.</li>
+							<li>A Google Apps Script for staffing people to work at an event.</li>
+							<li>A map interface for restaurant and other venue reviews</li>
+						</ul>
+					</div>
+					<div class="speech" id="notes">
+						I take notes for my classes. Everyone does. I just type mine up because I hate reading my own hand-writing. If you would like, I will gladly hand them over to you if you let me know what you need - just contact me! I have notes for:
+						<ul>
+							<li>Calculus III</li>
+							<li>Discrete Mathematics</li>
+							<li>Object-Oriented Programming and Design</li>
+							<li>Physics: Thermodynamics and Electricity</li>
+							<li>Intermediate Microeconomics</li>
+							<li>Data Structures and Algorithms</li>
+						</ul>
+					</div>
+					<div class="speech" id="about">
+						Hi. My name is Jonathan Balsano. I'm a computer science major (economics minor) attending Columbia University's Engineering School. I'm interested in all sorts of things from music to computers to the outdoors. I play the violin, video games, and can be found releasing my inner child in Riverside Park on nice days.
+					</div>
+					<div class="speech" id="links">
+						Some things that might be of interest to you:
+						<ul>
+							<li>My email address: jrb2194 (at) columbia.edu</li>
+							<li>Facebook: <a href="http://facebook.com/jbalsano">http://facebook.com/jbalsano</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
