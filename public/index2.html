@@ -18,7 +18,7 @@
       body {
         background: #212124;
         background-image: url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/office.png);
-        color: #bbd;
+        color: #2dadff;
         font-family: Helvetica Neue, Helvetica, Aria, Sans-serif;
       }
       .title-bar {
@@ -28,6 +28,7 @@
         left: 0px;
         right: 50px;
         height: 80px;
+        box-shadow: inset 0px 4px 4px -2px black, inset 0px -2px 4px -2px #444;
       }
       .title-bar:after {
         height: 0px;
@@ -40,6 +41,19 @@
         content: ' ';
         top: 0px;
         right: -80px;
+      }
+      .title-bar:before {
+        height: 57px;
+        width: 56px;
+        position: absolute;
+        top: 12px;
+        right: -28px;
+        content: ' ';
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        background: transparent;
+        z-index: 2;
+        box-shadow: inset 0px 4px 4px -3px black, inset -2px 0px 4px -2px #444;;
       }
       h1 {
         position: relative;
@@ -62,10 +76,11 @@
         font-family: 'Raleway', sans-serif;
       }
       h2 {
-        font-weight: 100;
-        font-family: 'Prata', serif;
+        font-weight: 400;
+        font-family: 'Lobster', serif;
         font-size: 60px;
-        text-shadow: -2px -2px #111111;
+        margin: 0px;
+        text-shadow: -2px -2px #111, 1px 1px #444;
       }
       p {
         font-size: 35px;
@@ -76,7 +91,7 @@
         bottom: 0px;
         font-size: 15px;
         width: 100%;
-        color: #505050;
+        color: #555;
         text-shadow: -1px -1px #111111;
       } 
       .footer p {
