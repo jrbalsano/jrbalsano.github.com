@@ -2,58 +2,55 @@
 (function() {
 
   $(document).ready(function() {
-    var $cont, $contact, $home, $proj, $projects, fraction, initialOffset, scrollDistance, toTop, win;
+    var $nav0, $nav1, $nav2, $nav3, $page1, $page2, $page3, fraction, initialOffset, pageWidth, toTop, win;
     win = $(window);
-    scrollDistance = win.width();
+    pageWidth = win.width();
     initialOffset = parseInt($(".title-bar").css('top'));
     toTop = initialOffset - 150;
-    fraction = toTop / (scrollDistance * .5);
-    $projects = $($(".page")[1]);
-    $contact = $($(".page")[2]);
-    $home = $(".home");
-    $proj = $(".proj");
-    $cont = $(".cont");
-    win.resize(function() {
-      scrollDistance = win.width();
+    fraction = toTop / (pageWidth * .5);
+    $page1 = $($(".page")[1]);
+    $page2 = $($(".page")[2]);
+    $page3 = $($(".page")[3]);
+    $nav0 = $($("a.nav")[0]);
+    $nav1 = $($("a.nav")[1]);
+    $nav2 = $($("a.nav")[2]);
+    $nav3 = $($("a.nav")[3]);
+    $("body").resize(function() {
+      pageWidth = win.width();
       initialOffset = parseInt($(".title-bar").css('top'));
       toTop = initialOffset - 150;
-      return fraction = toTop / scrollDistance;
+      return fraction = toTop / pageWidth;
     });
     $(window).scroll(function(e) {
-      var left;
+      var activeNav, left;
       $(".title-bar ul a").removeClass("active");
       left = win.scrollLeft();
-      if (left < scrollDistance * .5) {
-        $(".title-bar").css('top', "" + (initialOffset - left * fraction) + "px");
-        return $home.addClass("active");
-      } else if (left < scrollDistance) {
-        $projects.css('left', "" + (scrollDistance - left) + "px");
-        $(".title-bar").css('top', (initialOffset - toTop) + 'px');
-        return $home.addClass("active");
-      } else if (left < scrollDistance * 2) {
-        $contact.css('left', "" + (scrollDistance * 2 - left) + "px");
-        $projects.css('left', "0px");
-        $(".title-bar").css('top', (initialOffset - toTop) + 'px');
-        return $proj.addClass("active");
-      } else {
-        $contact.css('left', "0px");
-        $(".title-bar").css('top', (initialOffset - toTop) + 'px');
-        return $cont.addClass("active");
-      }
+      $(".title-bar").css('top', left < pageWidth * .5 ? "" + (initialOffset - left * fraction) + "px" : '150px');
+      $(".above-title-bar").css('height', left < pageWidth * .5 ? "" + (initialOffset - left * fraction) + "px" : '150px');
+      $page1.css('left', left < pageWidth ? "" + (pageWidth - left) + "px" : '0px');
+      $page2.css('left', left < pageWidth * 2 ? "" + (pageWidth * 2 - left) + "px" : '0px');
+      $page3.css('left', left < pageWidth * 3 ? "" + (pageWidth * 3 - left) + "px" : '0px');
+      activeNav = $($("a.nav")[Math.round(left / pageWidth)]);
+      return activeNav.addClass("active");
     });
-    $home.click(function(e) {
+    $nav0.click(function(e) {
       return $("html, body").animate({
         scrollLeft: 0
       }, 750);
     });
-    $proj.click(function(e) {
+    $nav1.click(function(e) {
       return $("html, body").animate({
-        scrollLeft: scrollDistance
+        scrollLeft: pageWidth
       }, 750);
     });
-    return $cont.click(function(e) {
+    $nav2.click(function(e) {
       return $("html, body").animate({
-        scrollLeft: scrollDistance * 2
+        scrollLeft: pageWidth * 2
+      }, 750);
+    });
+    return $nav3.click(function(e) {
+      return $("html, body").animate({
+        scrollLeft: pageWidth * 3
       }, 750);
     });
   });

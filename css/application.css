@@ -8,6 +8,7 @@ body {
   position: absolute;
   background: #212124;
   background-image: url(../img/office.png);
+  background-attachment: fixed;
   overflow: visible;
   color: #6dadff;
   font-family: Raleway, Helvetica Neue, Helvetica, Aria, Sans-serif;
@@ -20,8 +21,16 @@ body {
   display: inline-block;
   margin: 0;
 }
-body div:nth-child(n+3) {
+body div:nth-child(n+4) {
   left: 100%;
+}
+.above-title-bar {
+  position: fixed;
+  background-image: url(../img/office.png);
+  height: 50%;
+  z-index: 2;
+  width: 100%;
+  margin-top:-40px;
 }
 .title-bar {
   z-index: 10;
