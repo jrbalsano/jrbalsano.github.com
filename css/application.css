@@ -78,12 +78,15 @@ h1 {
   padding: 0 100px;
 }
 .container p {
-  font-weight: 100;
   font-family: 'Raleway', sans-serif;
 }
 .page div {
   position: absolute;
   padding: 120px 150px 0px 150px;
+}
+ul {
+  font-size: 30px;
+  font-weight: 200;
 }
 h2 {
   font-weight: 400;
@@ -95,7 +98,7 @@ h2 {
 }
 p {
   font-size: 35px;
-  font-weight: 300;
+  font-weight: 200;
 }
 .title-bar ul {
   z-index: 11;
@@ -107,6 +110,7 @@ p {
   margin: 0px;
   text-shadow: -1px -1px #111111;
   padding: 0px;
+  text-indent: 0px;
 }
 .title-bar ul li {
   float: left;

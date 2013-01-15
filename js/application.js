@@ -33,9 +33,11 @@
       } else if (left < scrollDistance * 2) {
         $contact.css('left', "" + (scrollDistance * 2 - left) + "px");
         $projects.css('left', "0px");
+        $(".title-bar").css('top', (initialOffset - toTop) + 'px');
         return $proj.addClass("active");
       } else {
         $contact.css('left', "0px");
+        $(".title-bar").css('top', (initialOffset - toTop) + 'px');
         return $cont.addClass("active");
       }
     });

@@ -27,9 +27,11 @@ $(document).ready ->
     else if left < scrollDistance * 2
       $contact.css 'left', "#{scrollDistance*2-left}px"
       $projects.css 'left', "0px"
+      $(".title-bar").css 'top', (initialOffset-toTop)+'px'
       $proj.addClass("active")
     else
       $contact.css 'left', "0px"
+      $(".title-bar").css 'top', (initialOffset-toTop)+'px'
       $cont.addClass("active")
   $home.click (e)->
     $("html, body").animate (scrollLeft: 0), 750
