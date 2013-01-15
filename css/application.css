@@ -8,9 +8,8 @@ body {
   position: absolute;
   background: #212124;
   background-image: url(../img/office.png);
-  background-attachment: fixed;
   overflow: visible;
-  color: #2dadff;
+  color: #6dadff;
   font-family: Raleway, Helvetica Neue, Helvetica, Aria, Sans-serif;
 }
 .page {
@@ -25,6 +24,7 @@ body div:nth-child(n+3) {
   left: 100%;
 }
 .title-bar {
+  z-index: 10;
   position: fixed;
   background: #111;
   top: 50%;
@@ -98,20 +98,31 @@ p {
   font-weight: 300;
 }
 .title-bar ul {
+  z-index: 11;
   list-style: none;
   position: absolute;
   left: 40px;
   bottom: 10px;
   float: left;
   margin: 0px;
-  color: #555;
   text-shadow: -1px -1px #111111;
   padding: 0px;
 }
 .title-bar ul li {
   float: left;
   font-size: 27px;
+  color: #555;
   padding-left: 25px;
+}
+.title-bar a.active li { 
+  color: #2dadff;
+}
+.title-bar a {
+  font-weight: 400;
+  color: #555;
+}
+.title-bar a:hover {
+  font-style: normal;
 }
 .clearfix:after{
   clear: both;

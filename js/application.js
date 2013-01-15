@@ -2,34 +2,57 @@
 (function() {
 
   $(document).ready(function() {
-    var fraction, initialOffset, scrollDistance, toTop, win;
+    var $cont, $contact, $home, $proj, $projects, fraction, initialOffset, scrollDistance, toTop, win;
     win = $(window);
     scrollDistance = win.width();
     initialOffset = parseInt($(".title-bar").css('top'));
     toTop = initialOffset - 150;
     fraction = toTop / (scrollDistance * .5);
+    $projects = $($(".page")[1]);
+    $contact = $($(".page")[2]);
+    $home = $(".home");
+    $proj = $(".proj");
+    $cont = $(".cont");
     win.resize(function() {
       scrollDistance = win.width();
       initialOffset = parseInt($(".title-bar").css('top'));
       toTop = initialOffset - 150;
       return fraction = toTop / scrollDistance;
     });
-    return $(window).scroll(function(e) {
-      var $contact, $projects, left;
+    $(window).scroll(function(e) {
+      var left;
+      $(".title-bar ul a").removeClass("active");
       left = win.scrollLeft();
-      $projects = $($(".page")[1]);
-      $contact = $($(".page")[2]);
       if (left < scrollDistance * .5) {
-        return $(".title-bar").css('top', "" + (initialOffset - left * fraction) + "px");
+        $(".title-bar").css('top', "" + (initialOffset - left * fraction) + "px");
+        return $home.addClass("active");
       } else if (left < scrollDistance) {
         $projects.css('left', "" + (scrollDistance - left) + "px");
-        return $(".title-bar").css('top', (initialOffset - toTop) + 'px');
+        $(".title-bar").css('top', (initialOffset - toTop) + 'px');
+        return $home.addClass("active");
       } else if (left < scrollDistance * 2) {
         $contact.css('left', "" + (scrollDistance * 2 - left) + "px");
-        return $projects.css('left', "0px");
+        $projects.css('left', "0px");
+        return $proj.addClass("active");
       } else {
-        return $contact.css('left', "0px");
+        $contact.css('left', "0px");
+        return $cont.addClass("active");
       }
+    });
+    $home.click(function(e) {
+      return $("html, body").animate({
+        scrollLeft: 0
+      }, 750);
+    });
+    $proj.click(function(e) {
+      return $("html, body").animate({
+        scrollLeft: scrollDistance
+      }, 750);
+    });
+    return $cont.click(function(e) {
+      return $("html, body").animate({
+        scrollLeft: scrollDistance * 2
+      }, 750);
     });
   });
 
