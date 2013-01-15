@@ -4,27 +4,31 @@
   $(document).ready(function() {
     var fraction, initialOffset, scrollDistance, toTop, win;
     win = $(window);
-    scrollDistance = $(".page").width();
+    scrollDistance = win.width();
     initialOffset = parseInt($(".title-bar").css('top'));
     toTop = initialOffset - 150;
-    fraction = toTop / scrollDistance;
+    fraction = toTop / (scrollDistance * .5);
     win.resize(function() {
-      scrollDistance = $(".page").width();
+      scrollDistance = win.width();
       initialOffset = parseInt($(".title-bar").css('top'));
       toTop = initialOffset - 150;
       return fraction = toTop / scrollDistance;
     });
     return $(window).scroll(function(e) {
-      var left, top;
+      var $contact, $projects, left;
       left = win.scrollLeft();
-      top = win.scrollTop();
-      if (top !== 0) {
-        win.scrollLeft(left + top);
-      }
-      if (left < scrollDistance) {
-        return $(".title-bar").css('top', (initialOffset - left * fraction) + 'px');
-      } else {
+      $projects = $($(".page")[1]);
+      $contact = $($(".page")[2]);
+      if (left < scrollDistance * .5) {
+        return $(".title-bar").css('top', "" + (initialOffset - left * fraction) + "px");
+      } else if (left < scrollDistance) {
+        $projects.css('left', "" + (scrollDistance - left) + "px");
         return $(".title-bar").css('top', (initialOffset - toTop) + 'px');
+      } else if (left < scrollDistance * 2) {
+        $contact.css('left', "" + (scrollDistance * 2 - left) + "px");
+        return $projects.css('left', "0px");
+      } else {
+        return $contact.css('left', "0px");
       }
     });
   });

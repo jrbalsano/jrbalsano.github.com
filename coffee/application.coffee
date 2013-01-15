@@ -1,20 +1,26 @@
 $(document).ready ->
   win = $(window)
-  scrollDistance = $(".page").width()
+  scrollDistance = win.width()
   initialOffset = parseInt $(".title-bar").css 'top'
   toTop = initialOffset - 150
-  fraction = toTop/scrollDistance
+  fraction = toTop/(scrollDistance*.5)
   win.resize ->
-    scrollDistance = $(".page").width()
+    scrollDistance = win.width()
     initialOffset = parseInt $(".title-bar").css 'top'
     toTop = initialOffset - 150
     fraction = toTop/scrollDistance
   $(window).scroll (e) ->
     left = win.scrollLeft()
-    top = win.scrollTop()
-    if top != 0
-      win.scrollLeft left+top
-    if left < scrollDistance
-      $(".title-bar").css('top', (initialOffset-left*fraction)+'px')
+    $projects = $ $(".page")[1]
+    $contact = $ $(".page")[2]
+    if left < scrollDistance *.5
+      $(".title-bar").css 'top', "#{initialOffset-left*fraction}px"
+    else if left < scrollDistance
+      $projects.css 'left', "#{scrollDistance-left}px"
+      $(".title-bar").css 'top', (initialOffset-toTop)+'px'
+    else if left < scrollDistance * 2
+      $contact.css 'left', "#{scrollDistance*2-left}px"
+      $projects.css 'left', "0px"
     else
-      $(".title-bar").css('top', (initialOffset-toTop)+'px')
+      $contact.css 'left', "0px"
+

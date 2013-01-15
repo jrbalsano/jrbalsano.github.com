@@ -2,12 +2,14 @@ body, html {
   margin: 0px;
   height: 100%;
   overflow-y: hidden;
-  min-width: 400%;
+  width: 400%;
 }
 body {
   position: absolute;
   background: #212124;
   background-image: url(../img/office.png);
+  background-attachment: fixed;
+  overflow: visible;
   color: #2dadff;
   font-family: Raleway, Helvetica Neue, Helvetica, Aria, Sans-serif;
 }
@@ -18,6 +20,9 @@ body {
   width: 25%;
   display: inline-block;
   margin: 0;
+}
+body div:nth-child(n+3) {
+  left: 100%;
 }
 .title-bar {
   position: fixed;
@@ -78,7 +83,7 @@ h1 {
 }
 .page div {
   position: absolute;
-  top: 120px;
+  padding: 120px 150px 0px 150px;
 }
 h2 {
   font-weight: 400;
