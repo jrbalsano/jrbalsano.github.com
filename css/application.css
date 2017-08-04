@@ -1,158 +1,108 @@
 body, html {
-  margin: 0px;
-  height: 100%;
-  overflow-y: hidden;
-  width: 400%;
-}
-body {
-  position: absolute;
-  background: #212124;
-  background-image: url(../img/office.png);
-  background-attachment: fixed;
-  overflow: visible;
-  color: #6dadff;
-  font-family: Raleway, Helvetica Neue, Helvetica, Aria, Sans-serif;
-}
-.page {
-  top: 0px;
-  position: relative;
-  height: 100%;
-  width: 25%;
-  display: inline-block;
   margin: 0;
+  padding: 0;
 }
-body div:nth-child(n+4) {
-  left: 100%;
-}
-.above-title-bar {
-  position: fixed;
-  background-image: url(../img/office.png);
-  height: 50%;
-  z-index: 2;
-  width: 100%;
-  margin-top:-40px;
-}
-.title-bar {
-  z-index: 10;
-  position: fixed;
-  background: #111;
-  top: 50%;
-  margin-top: -120px;
-  left: 0px;
-  right: 50px;
-  height: 80px;
-  box-shadow: inset 0px 4px 4px -2px black, inset 0px -2px 4px -2px #444;
-}
-.title-bar:after {
-  height: 0px;
-  width: 0px;
-  position: absolute;
-  border: solid transparent;
-  border-width: 40px;
-  border-left-color: #111;
-  border-left-width: 40px;
-  content: ' ';
-  top: 0px;
-  right: -80px;
-}
-.title-bar:before {
-  height: 57px;
-  width: 56px;
-  position: absolute;
-  top: 12px;
-  right: -28px;
-  content: ' ';
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  background: transparent;
-  z-index: 2;
-  box-shadow: inset 0px 4px 4px -3px black, inset -2px 0px 4px -2px #444;;
-}
-.slash {
-  letter-spacing: -0.3em;
-}
-h1 {
-  position: relative;
-  color: #404aff;
-  font-size: 60px;
-  text-align: right;
-  margin: 0 10% 0 0;
+
+body {
+  font-family: 'Raleway';
   font-weight: 300;
-  text-shadow: -2px -2px #050505, 1px 1px #444;
-  line-height: 80px;
 }
-.page .container {
-  position: absolute;
-  top: 50%;
-  padding: 0 100px;
-}
-.container p {
-  font-family: 'Raleway', sans-serif;
-}
-.page div {
-  position: absolute;
-  padding: 120px 150px 0px 150px;
-}
-ul {
-  font-size: 30px;
-  font-weight: 200;
-}
-h2 {
-  font-weight: 400;
-  font-style: italic;
-  font-family: 'Prata', serif;
-  font-size: 60px;
-  margin: 0px;
-  text-shadow: -2px -2px #111, 1px 1px #444;
-}
-p {
-  font-size: 35px;
-  font-weight: 200;
-}
-p.small {
-  font-size: 14px;
-}
-.title-bar ul {
-  z-index: 11;
-  list-style: none;
-  position: absolute;
-  left: 40px;
-  bottom: 10px;
-  float: left;
-  margin: 0px;
-  text-shadow: -1px -1px #111111;
-  padding: 0px;
-  text-indent: 0px;
-}
-.title-bar ul li {
-  float: left;
-  font-size: 27px;
-  color: #555;
-  padding-left: 25px;
-}
-.title-bar a.active li { 
-  color: #2dadff;
-}
-.title-bar a {
-  font-weight: 400;
-  color: #555;
-}
-.title-bar a:hover {
-  font-style: normal;
-}
-.clearfix:after{
-  clear: both;
-  content: ".";
-  display: block;
-  height: 0;
-  visibility: hidden;
-  font-size: 0;
-}
-a {
-  font-weight: 600;
+
+a, a:hover, a:visited {
   text-decoration: none;
-  color: #2dadff;
+  color: inherit;
 }
-a:hover {
+
+.link, .link:visited {
+  text-decoration: none;
+  color: #3370ff;
+}
+
+.link:hover {
+  color: #0046eb;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 95vw;
+  background: #fff;
+  padding: 0 2.5vw;
+}
+
+.nav {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #acb3c4;
+}
+
+.nav--item, .nav--title {
+  display: block;
+  position: relative;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.nav--item {
+  color: #acb3c4;
+  height: 12vh;
+  font-size: 2vh;
+}
+
+.nav--item:hover {
+  color: #6a7695;
+}
+
+.nav--item__left {
+  order: 1;
+}
+
+.nav--title {
+  order: 2;
+  color: #a3beff;
+  padding: 4vh 0;
+  font-weight: 400;
+  font-size: 4vh;
+}
+
+.nav--item__right {
+  order: 3;
+}
+
+.nav--link {
+  display: block;
+  padding: 5vh 0;
+}
+
+.page {
+  height: 100vh;
+  width: 90vw;
+  margin: 0 2.5vw;
+  padding: 12vh 2.5vw 0;
+  font-size: 3vh;
+  display: flex;
+  border-bottom: 1px solid #acb3c4;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page__first {
+}
+
+.page--title {
+  font-size: 8vh;
+  font-family: 'Prata', serif;
   font-style: italic;
+  margin-top: -12vh;
+}
+
+.page--text {
+  margin: 0 5vw;
+}
+
+.page--list {
+  margin: 3vh 7vw 0 5vw;
 }
